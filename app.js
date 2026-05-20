@@ -81,6 +81,16 @@ class AlgorithmVisualizer {
             });
         }
 
+        // Solutions panel toggle - mobile
+        const solutionToggleBtn = document.getElementById('solution-toggle-btn');
+        if (solutionToggleBtn) {
+            solutionToggleBtn.addEventListener('click', () => {
+                const infoPanel = document.querySelector('.info-panel');
+                infoPanel.classList.toggle('collapsed');
+                solutionToggleBtn.classList.toggle('collapsed');
+            });
+        }
+
         // Visualization
         this.visualizeBtn.addEventListener('click', () => this.runVisualization());
 

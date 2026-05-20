@@ -49,6 +49,10 @@
     display: none;
 }
 
+.solution-toggle-btn {
+    display: none;
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -632,6 +636,28 @@ canvas:active {
     .panel-header h3 {
         font-size: 12px;
     }
+
+    /* Solution header with toggle button for mobile */
+    .solution-header {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .solution-toggle-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px 8px;
+        color: var(--text-primary);
+        transition: transform 0.2s;
+    }
+
+    .solution-toggle-btn.collapsed .toggle-icon {
+        transform: rotate(180deg);
+    }
     
     .input-group {
         padding: 8px;
@@ -694,6 +720,23 @@ canvas:active {
         flex: 1;
         display: flex;
         flex-direction: column;
+    }
+
+    .info-panel.collapsed {
+        flex: 0;
+        min-height: 0;
+    }
+
+    .info-panel.collapsed .solution-output {
+        display: none;
+    }
+
+    .info-panel.collapsed .solution-header {
+        display: flex;
+    }
+
+    .info-panel:not(.collapsed) .solution-header {
+        display: flex;
     }
     
     .solution-output {
