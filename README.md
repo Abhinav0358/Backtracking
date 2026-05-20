@@ -1,4 +1,4 @@
-# Algorithm Visualizer - Tree Visualization Edition
+# Backtracking Visualizer
 
 A clean, professional web application for visualizing backtracking algorithms as interactive trees with Desmos-style design.
 
