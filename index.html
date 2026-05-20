@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Algorithm Visualizer</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- Sidebar: Problems -->
+            <aside class="sidebar problems-panel">
+                <div class="panel-header">
+                    <h2>Problems</h2>
+                </div>
+                <div class="problems-list">
+                    <button
+                        class="problem-btn active"
+                        data-problem="combination-sum"
+                    >
+                        <span>Combination Sum</span>
+                    </button>
+                    <button class="problem-btn" data-problem="subsets">
+                        <span>Subsets</span>
+                    </button>
+                </div>
+                <div class="theme-toggle-container">
+                    <button
+                        id="theme-toggle"
+                        class="theme-toggle"
+                        title="Toggle dark/light theme"
+                    >
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Visualization Area -->
+            <main class="main-content">
+                <!-- Input Panel -->
+                <section class="input-panel">
+                    <div class="panel-header">
+                        <h2 id="problem-title">Combination Sum</h2>
+                    </div>
+                    <div class="input-group">
+                        <label for="numbers-input">Array:</label>
+                        <input
+                            type="text"
+                            id="numbers-input"
+                            placeholder="2, 3, 6, 7"
+                            value="2, 3, 6, 7"
+                        />
+                    </div>
+                    <div class="input-group" id="target-group">
+                        <label for="target-input">Target:</label>
+                        <input
+                            type="number"
+                            id="target-input"
+                            placeholder="7"
+                            value="7"
+                        />
+                    </div>
+                    <div class="controls">
+                        <button id="visualize-btn" class="btn btn-primary">
+                            Visualize
+                        </button>
+                        <div class="speed-control">
+                            <label for="speed-slider">Speed:</label>
+                            <input
+                                type="range"
+                                id="speed-slider"
+                                min="0.25"
+                                max="4"
+                                step="0.25"
+                                value="1"
+                            />
+                            <span id="speed-value">1x</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Visualization Area (Desmos-like) -->
+                <section class="visualization-area">
+                    <div id="canvas-container">
+                        <canvas id="visualization-canvas"></canvas>
+                        <div id="stats-overlay" class="stats-overlay">
+                            <div
+                                style="
+                                    margin-bottom: 8px;
+                                    font-weight: 600;
+                                    color: var(--primary);
+                                "
+                            >
+                                Stats
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Info Panel -->
+                <section class="info-panel">
+                    <div class="panel-header">
+                        <h3>Solution</h3>
+                    </div>
+                    <div id="solution-output" class="solution-output">
+                        <p class="placeholder">
+                            Run visualization to see results
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script src="algorithms.js"></script>
+        <script src="visualizer.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
