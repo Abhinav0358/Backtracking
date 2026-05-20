@@ -83,6 +83,9 @@ html, body {
     padding: 16px;
     border-bottom: 1px solid var(--border);
     background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .panel-header h2 {
@@ -566,7 +569,7 @@ canvas:active {
     
     .main-content {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto 1fr;
+        grid-template-rows: auto auto minmax(200px, 0.5fr) 1fr;
         height: 100vh;
         gap: 0;
     }
@@ -639,20 +642,22 @@ canvas:active {
 
     /* Solution header with toggle button for mobile */
     .solution-header {
-        display: none;
+        display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        padding: 0;
     }
 
     .solution-toggle-btn {
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 14px;
-        padding: 4px 8px;
+        font-size: 16px;
+        padding: 8px 12px;
         color: var(--text-primary);
-        transition: transform 0.2s;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
     }
 
     .solution-toggle-btn.collapsed .toggle-icon {
@@ -706,10 +711,9 @@ canvas:active {
     .visualization-area {
         grid-column: 1;
         grid-row: 3;
-        flex: 0.5;
         border-right: none;
         border-bottom: 1px solid var(--border);
-        min-height: 200px;
+        overflow: hidden;
     }
     
     .info-panel {
@@ -717,26 +721,18 @@ canvas:active {
         grid-row: 4;
         border-left: none;
         border-top: 1px solid var(--border);
-        flex: 1;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
     }
 
     .info-panel.collapsed {
-        flex: 0;
-        min-height: 0;
+        grid-row: 4;
+        min-height: auto;
     }
 
     .info-panel.collapsed .solution-output {
         display: none;
-    }
-
-    .info-panel.collapsed .solution-header {
-        display: flex;
-    }
-
-    .info-panel:not(.collapsed) .solution-header {
-        display: flex;
     }
     
     .solution-output {
