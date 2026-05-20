@@ -15,6 +15,9 @@ class BacktrackingVisualizer {
     this.onStepChange = null; // Callback for step changes
     this.onSolutionFound = null; // Callback when solution is found
     this.lastSolutionStepIndex = -1; // Track which solutions have been reported
+    
+    // Check if mobile view
+    this.isMobile = window.innerWidth < 600;
 
     // Pan and zoom
     this.panX = 0;
@@ -422,8 +425,10 @@ class BacktrackingVisualizer {
 
     this.ctx.restore();
 
-    // Draw UI elements on canvas (legend) - commented out since using HTML overlay
-    this.drawLegend();
+    // Draw UI elements on canvas (legend) - hidden on mobile
+    if (!this.isMobile) {
+      this.drawLegend();
+    }
     // Don't draw controls as stats are shown in HTML overlay
     // this.drawControls();
 

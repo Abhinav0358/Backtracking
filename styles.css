@@ -680,10 +680,10 @@ canvas:active {
     .visualization-area {
         grid-column: 1;
         grid-row: 3;
-        flex: 1;
+        flex: 0.5;
         border-right: none;
         border-bottom: 1px solid var(--border);
-        min-height: 300px;
+        min-height: 200px;
     }
     
     .info-panel {
@@ -691,12 +691,16 @@ canvas:active {
         grid-row: 4;
         border-left: none;
         border-top: 1px solid var(--border);
-        max-height: 150px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
     
     .solution-output {
         padding: 10px;
         font-size: 10px;
+        overflow-y: auto;
+        flex: 1;
     }
     
     .solution-item {
@@ -705,7 +709,7 @@ canvas:active {
     }
     
     .stats-overlay {
-        top: 8px;
+        bottom: 8px;
         left: 8px;
         padding: 8px 10px;
         font-size: 10px;
