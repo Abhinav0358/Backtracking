@@ -57,13 +57,29 @@ class AlgorithmVisualizer {
     }
 
     initializeEventListeners() {
-        // Problem selection
+        // Problem selection - desktop sidebar
         this.problemButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const problemId = e.currentTarget.dataset.problem;
                 this.switchProblem(problemId);
             });
         });
+
+        // Problem selection - mobile dropdown
+        const mobileSelector = document.getElementById('mobile-problem-selector');
+        if (mobileSelector) {
+            mobileSelector.addEventListener('change', (e) => {
+                this.switchProblem(e.target.value);
+            });
+        }
+
+        // Theme toggle - mobile
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', () => {
+                window.themeManager.toggleTheme();
+            });
+        }
 
         // Visualization
         this.visualizeBtn.addEventListener('click', () => this.runVisualization());
@@ -97,10 +113,16 @@ class AlgorithmVisualizer {
         this.currentProblem = problemId;
         this.loadProblem(problemId);
 
-        // Update UI
+        // Update UI - desktop buttons
         this.problemButtons.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.problem === problemId);
         });
+
+        // Update UI - mobile selector
+        const mobileSelector = document.getElementById('mobile-problem-selector');
+        if (mobileSelector) {
+            mobileSelector.value = problemId;
+        }
     }
 
     loadProblem(problemId) {
@@ -257,10 +279,20 @@ class ThemeManager {
         if (theme === 'dark') {
             html.setAttribute('data-theme', 'dark');
             this.themeToggle.querySelector('.theme-icon').textContent = '☀️';
+            // Update mobile theme toggle too
+            const mobileToggle = document.getElementById('mobile-theme-toggle');
+            if (mobileToggle) {
+                mobileToggle.querySelector('.theme-icon').textContent = '☀️';
+            }
             localStorage.setItem('theme', 'dark');
         } else {
             html.removeAttribute('data-theme');
             this.themeToggle.querySelector('.theme-icon').textContent = '🌙';
+            // Update mobile theme toggle too
+            const mobileToggle = document.getElementById('mobile-theme-toggle');
+            if (mobileToggle) {
+                mobileToggle.querySelector('.theme-icon').textContent = '🌙';
+            }
             localStorage.setItem('theme', 'light');
         }
 

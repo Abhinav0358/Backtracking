@@ -45,6 +45,10 @@
     box-sizing: border-box;
 }
 
+.mobile-header {
+    display: none;
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -558,15 +562,60 @@ canvas:active {
     
     .main-content {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr;
+        grid-template-rows: auto auto auto 1fr;
         height: 100vh;
         gap: 0;
+    }
+
+    /* Mobile header with problem selector and theme toggle */
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .mobile-header-left {
+        flex: 1;
+    }
+
+    .mobile-problem-selector {
+        width: 100%;
+        padding: 6px 8px;
+        font-size: 12px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: var(--background);
+        color: var(--text-primary);
+        cursor: pointer;
+    }
+
+    .mobile-theme-toggle {
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 6px 10px;
+        cursor: pointer;
+        margin-left: 8px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+    }
+
+    .mobile-theme-toggle:active {
+        background-color: var(--surface-alt);
     }
     
     .input-panel {
         grid-column: 1;
-        grid-row: 1;
-        max-height: 140px;
+        grid-row: 2;
+        max-height: 120px;
         border-right: none;
         border-bottom: 1px solid var(--border);
         overflow-y: auto;
@@ -630,7 +679,7 @@ canvas:active {
     
     .visualization-area {
         grid-column: 1;
-        grid-row: 2;
+        grid-row: 3;
         flex: 1;
         border-right: none;
         border-bottom: 1px solid var(--border);
@@ -639,10 +688,10 @@ canvas:active {
     
     .info-panel {
         grid-column: 1;
-        grid-row: 3;
+        grid-row: 4;
         border-left: none;
         border-top: 1px solid var(--border);
-        max-height: 200px;
+        max-height: 150px;
     }
     
     .solution-output {

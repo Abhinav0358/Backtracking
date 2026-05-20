@@ -37,6 +37,21 @@
 
             <!-- Main Visualization Area -->
             <main class="main-content">
+                <!-- Mobile Header (visible only on mobile) -->
+                <div class="mobile-header">
+                    <div class="mobile-header-left">
+                        <select id="mobile-problem-selector" class="mobile-problem-selector">
+                            <option value="combination-sum">Combination Sum</option>
+                            <option value="subsets">Subsets</option>
+                        </select>
+                    </div>
+                    <div class="mobile-header-right">
+                        <button id="mobile-theme-toggle" class="mobile-theme-toggle" title="Toggle theme">
+                            <span class="theme-icon">🌙</span>
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Input Panel -->
                 <section class="input-panel">
                     <div class="panel-header">
